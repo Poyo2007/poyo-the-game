@@ -3,6 +3,7 @@ package game;
 import flixel.FlxState;
 import flixel.FlxG;
 import flixel.tile.FlxTilemap;
+import flixel.ui.FlxVirtualPad;
 import openfl.Assets;
 import backend.AssetPaths;
 import frontend.Player;
@@ -11,6 +12,9 @@ class PlayState extends FlxState
 {
 	var level:FlxTilemap;
 	var player:Player;
+	#if mobile
+	var flxPad:FlxVirtualPad;
+	#end
 
 	override function create():Void
 	{
@@ -20,6 +24,11 @@ class PlayState extends FlxState
 
 		player = new Player(0, 0);
 		add(player);
+
+		#if mobile
+		flxPad = new FlxVirtualPad(FULL, A_B_X_Y);
+		add(flxPad);
+		#end
 
 		super.create();
 	}
