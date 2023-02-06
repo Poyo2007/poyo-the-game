@@ -12,7 +12,7 @@ class PlayState extends FlxState
 	var mapName:String = 'quiet-graveyard';
 	
 	var map:FlxTilemap;
-	var loadMap:FlxOgmo3Loader;
+	var mapLoader:FlxOgmo3Loader;
 
 	override public function create()
 	{
