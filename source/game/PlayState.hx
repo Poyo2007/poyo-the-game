@@ -14,9 +14,9 @@ class PlayState extends FlxState
 	{
 		super.create();
 
-		level = new FlxTilemap();
+		/*level = new FlxTilemap();
     level.loadMapFromCSV(AssetPaths.returnMapCSV(mapName), AssetPaths.returnMapTileset(mapName), 16, 16);
-    add(level);
+    add(level);*/
 	}
 
 	override public function update(elapsed:Float)
