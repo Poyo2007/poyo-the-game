@@ -3,6 +3,7 @@ package game;
 import flixel.FlxState;
 import flixel.tile.FlxTilemap;
 import flixel.FlxG;
+import openfl.utils.Assets;
 import backend.AssetPaths;
 
 class PlayState extends FlxState
