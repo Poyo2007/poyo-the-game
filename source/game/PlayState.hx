@@ -4,7 +4,7 @@ import flixel.FlxState;
 import flixel.FlxG;
 import flixel.tile.FlxTilemap;
 import openfl.Assets;
-import backend.AssetPaths
+import backend.AssetPaths;
  
 class PlayState extends FlxState
 {
