@@ -17,7 +17,7 @@ class PlayState extends FlxState
 		level = new FlxTilemap();
     var mapData:String = Assets.getText(AssetPaths.returnMapCSV(mapName));
     var mapTilePath:String = AssetPaths.returnMapTileset(mapName);
-    level.loadMap(mapData, mapTilePath, 16, 16);
+    level.loadMapFromCSV(mapData, mapTilePath, 16, 16);
     add(level);
 	}
 
