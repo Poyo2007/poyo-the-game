@@ -8,14 +8,14 @@ import backend.AssetPaths;
  
 class PlayState extends FlxState
 {
-    var level:FlxTilemap;
- 
-    function create():Void
-    {
-        level = new FlxTilemap();
-				level.loadMapFromCSV(AssetPaths.returnMapCSV('quiet-graveyard'), AssetPaths.returnMapTileset('quiet-graveyard'), 16, 16);
-        add(level);
- 
-        super.create();
-    }
+	var level:FlxTilemap;
+
+	override function create():Void
+	{
+		level = new FlxTilemap();
+		level.loadMapFromCSV(AssetPaths.returnMapCSV('quiet-graveyard'), AssetPaths.returnMapTileset('quiet-graveyard'), 16, 16);
+		add(level);
+
+		super.create();
+	}
 }
