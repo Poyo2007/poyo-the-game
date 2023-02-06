@@ -18,9 +18,9 @@ class PlayState extends FlxState
 	{
 		super.create();
 
-		map = new FlxOgmo3Loader(AssetPaths.returnMapOgmo(mapName), AssetPaths.returnMapJson(mapName));
-		walls = map.loadTilemap(AssetPaths.returnMapTileset(mapName), "walls");
-		add(walls);
+		mapLoader = new FlxOgmo3Loader(AssetPaths.returnMapOgmo(mapName), AssetPaths.returnMapJson(mapName));
+		map = mapLoader.loadTilemap(AssetPaths.returnMapTileset(mapName), "map");
+		add(map);
 	}
 
 	override public function update(elapsed:Float)
