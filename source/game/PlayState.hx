@@ -4,6 +4,7 @@ import flixel.FlxState;
 import flixel.FlxG;
 import flixel.tile.FlxTilemap;
 import openfl.Assets;
+import backend.AssetPaths
  
 class PlayState extends FlxState
 {
@@ -14,7 +15,7 @@ class PlayState extends FlxState
         super.create();
  
         level = new FlxTilemap();
-				level.loadMap(AssetPaths.returnMapCSV('quiet-graveyard'), AssetPaths.returnMapTileset('quiet-graveyard'), 16, 16);
+				level.loadMapFromCSV(AssetPaths.returnMapCSV('quiet-graveyard'), AssetPaths.returnMapTileset('quiet-graveyard'), 16, 16);
         add(level);
     }
  
