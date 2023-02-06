@@ -9,10 +9,10 @@ class Player extends FlxSprite
 	var player:FlxSprite;
 	public function new(x:Float, y:Float)
 	{
-		player = new FlxSprite();
-		player.makeGraphic(200, 200, FlxColor.WHITE);
-		player.acceleration.y = 400;
+		super(x, y);
+		makeGraphic(16, 16, FlxColor.WHITE);
+		acceleration.y = 400;
 		// object will not accelerate beyond 200 pixels per second
-		player.maxVelocity.y = 200;
+		maxVelocity.y = 200;
 	}
 }

@@ -24,9 +24,10 @@ class PlayState extends FlxState
 		super.create();
 	}
 
-	override function update():Void
+	override function update(elapsed:Float):Void
 	{
 		FlxG.collide(player, level);
+
 		super.update();
 	}
 }
