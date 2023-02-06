@@ -67,7 +67,7 @@ jobs:
         uses: actions/upload-artifact@main
         with:
           name: androidBuild
-          path: export/release
+          path: export
           if-no-files-found: error
 
       - name: Uploading Cache
@@ -140,7 +140,7 @@ jobs:
         uses: actions/upload-artifact@main
         with:
           name: androidBuild-DEBUG
-          path: export/debug/android/bin/app/build/outputs/apk/debug
+          path: export
           if-no-files-found: error
 
       - name: Uploading Cache
