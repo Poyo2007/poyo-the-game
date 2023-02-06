@@ -7,6 +7,6 @@ class AssetPaths {
 		return Assets.getText('assets/maps/$key/map.csv');
 	}
  inline public static function returnMapTileset(key:String) {
-		return 'assets/maps/$key/tileset.png'
+		return 'assets/maps/$key/tileset.png';
 	}
 }
