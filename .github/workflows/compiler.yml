@@ -63,13 +63,6 @@ jobs:
       - name: Building
         run: haxelib run lime build android --app-version="4.0.0-${{ github.run_id}}"
 
-      - name: Upload Artifact
-        uses: actions/upload-artifact@main
-        with:
-          name: androidBuild
-          path: export
-          if-no-files-found: error
-
       - name: Uploading Cache
         uses: actions/cache@main
         with:
@@ -81,6 +74,13 @@ jobs:
             export/release/android/obj/
           restore-keys: |
             cache-build-android-release
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@main
+        with:
+          name: androidBuild
+          path: export/android/bin/app/build/outputs
+          if-no-files-found: error
   debugBuild:
     runs-on: ubuntu-latest
 
@@ -135,14 +135,6 @@ jobs:
 
       - name: Building
         run: haxelib run lime build android -debug --app-version="4.0.0-${{ github.run_id}}"
-
-      - name: Upload Artifact
-        uses: actions/upload-artifact@main
-        with:
-          name: androidBuild-DEBUG
-          path: export
-          if-no-files-found: error
-
       - name: Uploading Cache
         uses: actions/cache@main
         with:
@@ -154,3 +146,10 @@ jobs:
             export/debug/android/obj/
           restore-keys: |
             cache-build-android-debug
+      - name: Upload Artifact
+        uses: actions/upload-artifact@main
+        with:
+          name: androidBuild-DEBUG
+          path: export
+          if-no-files-found: error
+
