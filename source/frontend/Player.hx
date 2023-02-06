@@ -6,7 +6,7 @@ import flixel.FlxG;
 
 class Player extends FlxSprite
 {
-	var speed:Int = 150
+	var speed:Int = 150;
 	public function new(x:Float, y:Float)
 	{
 		super(x, y);
