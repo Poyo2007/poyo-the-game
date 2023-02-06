@@ -28,6 +28,6 @@ class PlayState extends FlxState
 	{
 		FlxG.collide(player, level);
 
-		super.update();
+		super.update(elapsed);
 	}
 }
