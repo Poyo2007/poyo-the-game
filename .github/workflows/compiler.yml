@@ -39,8 +39,8 @@ jobs:
           key: cache-build-android-release
           path: |
             .haxelib/
-            export/release/android/haxe/
-            export/release/android/obj/
+            export/android/haxe/
+            export/android/obj/
           restore-keys: |
             cache-build-android-release
 
@@ -70,8 +70,8 @@ jobs:
           key: cache-build-android-release
           path: |
             .haxelib/
-            export/release/android/haxe/
-            export/release/android/obj/
+            export/android/haxe/
+            export/android/obj/
           restore-keys: |
             cache-build-android-release
 
@@ -112,8 +112,8 @@ jobs:
           key: cache-build-android-debug
           path: |
             .haxelib/
-            export/debug/android/haxe/
-            export/debug/android/obj/
+            export/android/haxe/
+            export/android/obj/
           restore-keys: |
             cache-build-android-debug
 
@@ -142,8 +142,8 @@ jobs:
           key: cache-build-android-debug
           path: |
             .haxelib/
-            export/debug/android/haxe/
-            export/debug/android/obj/
+            export/android/haxe/
+            export/android/obj/
           restore-keys: |
             cache-build-android-debug
       - name: Upload Artifact
