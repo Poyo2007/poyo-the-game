@@ -4,7 +4,7 @@ import openfl.utils.Assets;
 
 class AssetPaths {
  inline public static function returnMapOgmo(key:String) {
-		return 'assets/maps/$key/map.ogmo';
+		return Assets.getText('assets/maps/$key/map.ogmo');
 	}
  inline public static function returnMapJson(key:String) {
 		return Assets.getText('assets/maps/$key/map.json');
