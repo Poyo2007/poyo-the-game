@@ -3,8 +3,8 @@ package game;
 import flixel.FlxState;
 import flixel.FlxG;
 import flixel.tile.FlxTilemap;
-import flixel.ui.FlxVirtualPad;
 import openfl.Assets;
+import mobile.flixel.FlxVirtualPad;
 import backend.AssetPaths;
 import frontend.Player;
  
