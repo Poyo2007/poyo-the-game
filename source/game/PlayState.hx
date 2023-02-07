@@ -68,7 +68,7 @@ class PlayState extends FlxState
 		else if (FlxG.keys.anyPressed([RIGHT, D]) #if mobile || flxPad.buttonRight.pressed #end)
 			player.movement(RIGHT);
 
-		if (Flxg.keys.anyPressed([SPACE, Z]) #if mobile || flxPad.buttonA.pressed #end)
+		if (FlxG.keys.anyPressed([SPACE, Z]) #if mobile || flxPad.buttonA.pressed #end)
 			player.movement(JUMP);
 		else
 			player.movement(NOTJUMP);
