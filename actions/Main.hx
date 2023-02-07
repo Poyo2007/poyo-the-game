@@ -18,9 +18,14 @@ class Main
 {
 	public static function main():Void
 	{
+		#if windows
+		var path:String = 'C:\Users\runneradmin/haxelib';
+		#elseif linux
+		var path:String = '.haxelib';
+		#end
 		// To prevent messing with currently installed libs
-		if (!FileSystem.exists('.haxelib'))
-			FileSystem.createDirectory('.haxelib');
+		if (!FileSystem.exists(path))
+			FileSystem.createDirectory(path);
 
 		Sys.println("Preparing installation...");
 
