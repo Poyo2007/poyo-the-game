@@ -53,7 +53,7 @@ class Player extends FlxSprite
 		
 		// hold button to jump higher (up to 0.25s)
 		if (jumpTimer > 0 && jumpTimer < 0.25 && jumpPressed)
-			sprite.velocity.y = -300;
+			velocity.y = -300;
 
 		super.update(elapsed);
 	 }
