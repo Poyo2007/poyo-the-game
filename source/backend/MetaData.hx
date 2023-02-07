@@ -1,7 +1,7 @@
 package backend;
 
 class MetaData {
-	var _mapName:String = 'quiet-graveyard';
-	var _character:String = 'vanilla';
-	var _totalCoins:Int = 0;
+	public var _mapName:String = 'quiet-graveyard';
+	public var _character:String = 'vanilla';
+	public var _totalCoins:Int = 0;
 }
