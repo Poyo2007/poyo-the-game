@@ -5,6 +5,13 @@ import flixel.util.FlxColor;
 import flixel.FlxG;
 import mobile.flixel.FlxVirtualPad;
 
+enum FlxMovement
+{
+	LEFT;
+	RIGHT;
+	STILL;
+}
+
 class Player extends FlxSprite
 {
 	var speed:Int = 150;
@@ -21,14 +28,7 @@ class Player extends FlxSprite
 
 	public function movement(move:FlxMovement)
 	{
-	 if (Enum<frontend.FlxMovement> == LEFT)
+	 if (move == LEFT)
 		velocity.x = speed;
 	}
-}
-
-enum FlxMovement
-{
-	LEFT;
-	RIGHT;
-	STILL;
 }
