@@ -23,7 +23,7 @@ class Player extends FlxSprite
 	var speed:Int = 150;
 	var state:PlayerState = FALLING;
 	var jumping:Bool = false;
-	var jumpPressed
+	var jumpPressed:Bool = false;
 	var jumpTimer:Float = 0;
 
 	public function new(x:Float, y:Float)
@@ -41,7 +41,7 @@ class Player extends FlxSprite
 		if (jumping && isTouching(DOWN))
 			jumping = false;
 
-		if (jumpPressed && jumping == false) {
+		if (jumpPressed && !jumping || !isTouching(DOWN)) {
 			jumpTimer = 0;
 			jumping = true;
 		}
