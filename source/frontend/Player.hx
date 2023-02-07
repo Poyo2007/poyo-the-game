@@ -19,9 +19,9 @@ class Player extends FlxSprite
 		drag.x = speed * 4;
 	}
 
-	function movement(move:FlxMovement)
+	public function movement(move:FlxMovement)
 	{
-	 if (FlxMovement == LEFT)
+	 if (frontend.FlxMovement == LEFT)
 		velocity.x = speed;
 	}
 }
