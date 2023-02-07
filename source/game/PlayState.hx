@@ -38,7 +38,7 @@ class PlayState extends FlxState
 		FlxG.collide(player, level);
 
 		if (flxPad.buttonLeft.pressed)
-			player.movement(LEFT)
+			player.movement(LEFT);
 
 		super.update(elapsed);
 	}
