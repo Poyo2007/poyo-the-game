@@ -79,23 +79,18 @@ jobs:
         uses: actions/upload-artifact@main
         with:
           name: androidBuild
-          path: export/android/bin/app/build/outputs
+          path: export/windows/bin/app/build/outputs
           if-no-files-found: error
-  windowsBuild:
-    runs-on: ubuntu-latest
+  buildWindows:
+    runs-on: windows-latest
 
     steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout
-        uses: actions/checkout@main
+      - uses: actions/checkout@v2.3.0
 
-      - name: Setup Java JDK
-        uses: actions/setup-java@main
-        with:
-          distribution: 'zulu'
-          java-version: '18'
-
-      - name: Setup Haxe
-        uses: krdlab/setup-haxe@v1.2.0
+			- name: Haxe Setup
+      - uses: krdlab/setup-haxe@master
         with:
           haxe-version: 4.2.5
 
@@ -103,41 +98,41 @@ jobs:
         uses: actions/cache@main
         with:
           # not caching the bin folder to prevent asset duplication and stuff like that
-          key: cache-build-windows-release
+          key: cache-build-windows-debug
           path: |
             .haxelib/
             export/windows/haxe/
             export/windows/obj/
           restore-keys: |
-            cache-build-windows-release
+            cache-build-windows-debug
 
-      - name: Installing Libraries
+      # Runs a set of commands using the runners shell
+      - name: Install Haxelib
         run: |
-          haxelib setup ~/haxelib
+          haxelib setup C:/haxelib
           haxelib --quiet install hxcpp > /dev/null
           haxe -cp ./actions -D analyzer-optimize -main Main --interp
-
-      - name: Building
+        shell: cmd
+      - name: Create Version Tag
+        run: echo "${{github.run_id}}" > VERSION
+      - name: Compile
         run: haxelib run lime build windows --app-version="4.0.0-${{ github.run_id}}"
-
       - name: Uploading Cache
         uses: actions/cache@main
         with:
           # caching again since for some reason it doesnt work with the first post cache shit
-          key: cache-build-windows-release
+          key: cache-build-windows-debug
           path: |
             .haxelib/
             export/windows/haxe/
             export/windows/obj/
           restore-keys: |
-            cache-build-windows-release
-
-      - name: Upload Artifact
-        uses: actions/upload-artifact@main
+            cache-build-windows-debug
+      - name: Publish Artifact
+        uses: actions/upload-artifact@v2.2.4
         with:
           name: windowsBuild
-          path: export/android/bin/app/build/outputs
-          if-no-files-found: error
+          path: export/windows/bin
   debugBuild:
     runs-on: ubuntu-latest
 
