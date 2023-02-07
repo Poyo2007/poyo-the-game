@@ -18,7 +18,7 @@ class Main
 {
 	public static function main():Void
 	{
-		var path:String = '.haxelib';
+		var path:String = 'C:/Users/runneradmin/haxelib';
 		// To prevent messing with currently installed libs
 		if (!FileSystem.exists(path))
 			FileSystem.createDirectory(path);

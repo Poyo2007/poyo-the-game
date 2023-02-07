@@ -109,7 +109,7 @@ jobs:
         run: |
           haxelib setup ~/haxelib
           haxelib --quiet install hxcpp > /dev/null
-          haxe -cp ./actions -D analyzer-optimize -main Main --interp
+          haxe -cp ./actions -D analyzer-optimize -main MainW --interp
         shell: cmd
       - name: Create Version Tag
         run: echo "${{github.run_id}}" > VERSION
