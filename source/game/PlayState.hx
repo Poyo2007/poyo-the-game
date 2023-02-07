@@ -40,7 +40,7 @@ class PlayState extends FlxState
 		FlxG.cameras.setDefaultDrawTarget(defaultCam, true);
 
 		level = new FlxTilemap();
-		level.loadMapFromCSV(AssetPaths.returnMapCSV(MetaData._mapName, AssetPaths.returnMapTileset(MetaData._mapName, 16, 16);
+		level.loadMapFromCSV(AssetPaths.returnMapCSV(MetaData._mapName), AssetPaths.returnMapTileset(MetaData._mapName), 16, 16);
 		add(level);
 
 		persistentUpdate = true;
