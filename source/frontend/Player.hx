@@ -21,10 +21,7 @@ class Player extends FlxSprite
 
 	override function update(elapsed:Float)
 	{
-		var left:Array<Dynamic> = [FlxG.keys.pressed.A, _virtualpad.buttonLeft.pressed];
-		var right:Array<Dynamic> = [FlxG.keys.pressed.D, _virtualpad.buttonRight.pressed];
-
-		if (left.contains(true))
+		if (FlxVirtualPad.buttonLeft.pressed)
 			velocity.x = speed;
 	}
 }
