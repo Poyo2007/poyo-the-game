@@ -56,7 +56,7 @@ class PlayState extends FlxState
 		add(flxPad);
 		#end
 
-		FlxG.worldBounds.set(level.scaledWidth, level.scaledHeight);
+		FlxG.worldBounds.set(level.width, level.height);
 
 		super.create();
 	}
