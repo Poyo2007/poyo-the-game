@@ -31,6 +31,7 @@ class PlayState extends FlxState
 		#end
 
 		FlxG.cameras.reset(defaultCam);
+		defaultCam.zoom = 4;
 		#if mobile
 		FlxG.cameras.add(controlsCam, false);
 		#end
@@ -45,6 +46,7 @@ class PlayState extends FlxState
 		persistentDraw = true;
 
 		player = new Player(0, 0);
+		defaultCam.follow(player);
 		add(player);
 
 		#if mobile
