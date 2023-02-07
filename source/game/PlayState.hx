@@ -26,7 +26,7 @@ class PlayState extends FlxState
 		add(player);
 
 		#if mobile
-		flxPad = new FlxVirtualPad(FULL, A_B_X_Y);
+		flxPad = new FlxVirtualPad(LEFT_FULL, A_B_X_Y);
 		add(flxPad);
 		#end
 
