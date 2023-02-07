@@ -81,6 +81,63 @@ jobs:
           name: androidBuild
           path: export/android/bin/app/build/outputs
           if-no-files-found: error
+  windowsBuild:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@main
+
+      - name: Setup Java JDK
+        uses: actions/setup-java@main
+        with:
+          distribution: 'zulu'
+          java-version: '18'
+
+      - name: Setup Haxe
+        uses: krdlab/setup-haxe@v1.2.0
+        with:
+          haxe-version: 4.2.5
+
+      - name: Restore Cache
+        uses: actions/cache@main
+        with:
+          # not caching the bin folder to prevent asset duplication and stuff like that
+          key: cache-build-windows-release
+          path: |
+            .haxelib/
+            export/windows/haxe/
+            export/windows/obj/
+          restore-keys: |
+            cache-build-windows-release
+
+      - name: Installing Libraries
+        run: |
+          haxelib setup ~/haxelib
+          haxelib --quiet install hxcpp > /dev/null
+          haxe -cp ./actions -D analyzer-optimize -main Main --interp
+
+      - name: Building
+        run: haxelib run lime build windows --app-version="4.0.0-${{ github.run_id}}"
+
+      - name: Uploading Cache
+        uses: actions/cache@main
+        with:
+          # caching again since for some reason it doesnt work with the first post cache shit
+          key: cache-build-windows-release
+          path: |
+            .haxelib/
+            export/windows/haxe/
+            export/windows/obj/
+          restore-keys: |
+            cache-build-windows-release
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@main
+        with:
+          name: windowsBuild
+          path: export/android/bin/app/build/outputs
+          if-no-files-found: error
   debugBuild:
     runs-on: ubuntu-latest
 
