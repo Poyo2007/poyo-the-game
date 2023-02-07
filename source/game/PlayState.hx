@@ -47,7 +47,7 @@ class PlayState extends FlxState
 		persistentDraw = true;
 
 		player = new Player(0, 0);
-		defaultCam.follow(player, LOCKON, 1);
+		defaultCam.follow(player, LOCKON, 2);
 		add(player);
 
 		#if mobile
@@ -61,14 +61,14 @@ class PlayState extends FlxState
 
 	override function update(elapsed:Float):Void
 	{
-		FlxG.collide(player, level);
+		FlxG.collide(level, player);
 
-		if (flxPad.buttonLeft.pressed)
+		if (FlxG.keys.anyPressed([LEFT, A]), #if mobile || flxPad.buttonLeft.pressed #end)
 			player.movement(LEFT);
-		else if (flxPad.buttonRight.pressed)
+		else if (FlxG.keys.anyPressed([RIGHT, D]), #if mobile || flxPad.buttonRight.pressed #end)
 			player.movement(RIGHT);
 
-		if (flxPad.buttonA.pressed)
+		if (Flxg.keys.anyPressed([SPACE, Z]) #if mobile || flxPad.buttonA.pressed #end)
 			player.movement(JUMP);
 		else
 			player.movement(NOTJUMP);
