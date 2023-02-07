@@ -63,9 +63,9 @@ class PlayState extends FlxState
 	{
 		FlxG.collide(level, player);
 
-		if (FlxG.keys.anyPressed([LEFT, A]), #if mobile || flxPad.buttonLeft.pressed #end)
+		if (FlxG.keys.anyPressed([LEFT, A]) #if mobile || flxPad.buttonLeft.pressed #end)
 			player.movement(LEFT);
-		else if (FlxG.keys.anyPressed([RIGHT, D]), #if mobile || flxPad.buttonRight.pressed #end)
+		else if (FlxG.keys.anyPressed([RIGHT, D]) #if mobile || flxPad.buttonRight.pressed #end)
 			player.movement(RIGHT);
 
 		if (Flxg.keys.anyPressed([SPACE, Z]) #if mobile || flxPad.buttonA.pressed #end)
