@@ -74,7 +74,7 @@ class Player extends FlxSprite
 		}
 
 		if (move == JUMP) {
-			jumping = true;
+			jumpPressed = true;
 		}
 	}
 }
