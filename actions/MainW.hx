@@ -14,7 +14,7 @@ typedef Library =
 	var url:String;
 }
 
-class Main
+class MainW
 {
 	public static function main():Void
 	{
