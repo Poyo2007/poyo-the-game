@@ -10,6 +10,7 @@ enum FlxMovement
 	LEFT;
 	RIGHT;
 	JUMP;
+	NOTJUMP;
 }
 enum PlayerState
 {
@@ -38,22 +39,29 @@ class Player extends FlxSprite
 
 	 override function update(elapsed:Float)
 	 {
-		if (jumping && isTouching(DOWN))
+		if (jumping && !jumpPressed)
 			jumping = false;
 
-		if (jumpPressed && !jumping || !isTouching(DOWN)) {
+		/*
+		 * Reset jumpTimer when touching the floor
+		 * Note: This sprite's touching flags are set via FlxG.collide,
+		 * and are reset to false on super.update
+		 */
+		if (isTouching(DOWN) && !jumping)
 			jumpTimer = 0;
-			jumping = true;
-		}
 
 		if (jumpTimer >= 0 && jumpPressed)
+		{
+			jumping = true;
 			jumpTimer += elapsed;
+		}
 		else
 			jumpTimer = -1;
-		
+
 		// hold button to jump higher (up to 0.25s)
-		if (jumpTimer > 0 && jumpTimer < 0.25 && jumpPressed)
-			velocity.y = -300;
+		if (jumpTimer > 0 && jumpTimer < 0.25)
+			sprite.velocity.y = -300;
+	}
 
 		super.update(elapsed);
 	 }
@@ -75,6 +83,8 @@ class Player extends FlxSprite
 
 		if (move == JUMP) {
 			jumpPressed = true;
+		} else if (move == NOTJUMP) {
+			jumpPressed = false;
 		}
 	}
 }
