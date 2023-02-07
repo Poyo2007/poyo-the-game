@@ -3,6 +3,7 @@ package frontend;
 import flixel.FlxSprite;
 import flixel.util.FlxColor;
 import flixel.FlxG;
+import mobile.flixel.FlxVirtualPad;
 
 class Player extends FlxSprite
 {
@@ -16,6 +17,15 @@ class Player extends FlxSprite
 		acceleration.y = 400;
 		maxVelocity.y = 200;
 		drag.x = speed * 4;
+	}
+
+	override function update(elapsed:Float)
+	{
+		var left:Array<Dynamic> = [FlxG.keys.pressed.A, _virtualpad.buttonLeft.pressed];
+		var right:Array<Dynamic> = [FlxG.keys.pressed.D, _virtualpad.buttonRight.pressed];
+
+		if (left.contains(true))
+			velocity.x = speed;
 	}
 }
 
