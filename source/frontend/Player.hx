@@ -21,7 +21,7 @@ class Player extends FlxSprite
 
 	public function movement(move:FlxMovement)
 	{
-	 if (frontend.FlxMovement == LEFT)
+	 if (Enum<frontend.FlxMovement> == LEFT)
 		velocity.x = speed;
 	}
 }
