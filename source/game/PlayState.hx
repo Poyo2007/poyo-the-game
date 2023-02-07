@@ -39,6 +39,11 @@ class PlayState extends FlxState
 
 		if (flxPad.buttonLeft.pressed)
 			player.movement(LEFT);
+		else if (flxPad.buttonRight.pressed)
+			player.movement(RIGHT);
+
+		if (flxPad.buttonA.pressed)
+			player.movement(JUMP);
 
 		super.update(elapsed);
 	}
