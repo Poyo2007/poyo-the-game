@@ -19,10 +19,10 @@ class Player extends FlxSprite
 		drag.x = speed * 4;
 	}
 
-	override function update(elapsed:Float)
+	function movement(move:FlxMovement)
 	{
-		if (FlxVirtualPad.buttonLeft.pressed)
-			velocity.x = speed;
+	 if (FlxMovement == LEFT)
+		velocity.x = speed;
 	}
 }
 
