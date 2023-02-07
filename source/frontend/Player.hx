@@ -41,12 +41,7 @@ class Player extends FlxSprite
 	 {
 		if (jumping && !jumpPressed)
 			jumping = false;
-
-		/*
-		 * Reset jumpTimer when touching the floor
-		 * Note: This sprite's touching flags are set via FlxG.collide,
-		 * and are reset to false on super.update
-		 */
+	
 		if (isTouching(DOWN) && !jumping)
 			jumpTimer = 0;
 
@@ -60,8 +55,7 @@ class Player extends FlxSprite
 
 		// hold button to jump higher (up to 0.25s)
 		if (jumpTimer > 0 && jumpTimer < 0.25)
-			sprite.velocity.y = -300;
-	}
+			velocity.y = -300;
 
 		super.update(elapsed);
 	 }
