@@ -7,6 +7,7 @@ import flixel.tile.FlxTilemap;
 import openfl.Assets;
 import mobile.flixel.FlxVirtualPad;
 import backend.AssetPaths;
+import backend.MetaData;
 import frontend.Player;
  
 class PlayState extends FlxState
@@ -39,14 +40,14 @@ class PlayState extends FlxState
 		FlxG.cameras.setDefaultDrawTarget(defaultCam, true);
 
 		level = new FlxTilemap();
-		level.loadMapFromCSV(AssetPaths.returnMapCSV('quiet-graveyard'), AssetPaths.returnMapTileset('quiet-graveyard'), 16, 16);
+		level.loadMapFromCSV(AssetPaths.returnMapCSV(MetaData._mapName, AssetPaths.returnMapTileset(MetaData._mapName, 16, 16);
 		add(level);
 
 		persistentUpdate = true;
 		persistentDraw = true;
 
 		player = new Player(0, 0);
-		defaultCam.follow(player);
+		defaultCam.follow(player, LOCKON, 1);
 		add(player);
 
 		#if mobile
