@@ -21,7 +21,7 @@ enum PlayerState
 class Player extends FlxSprite
 {
 	var speed:Int = 150;
-	var state:PlayerState = FALLING;
+	var state:PlayerState = IDLE;
 	var jumping:Bool = false;
 	var jumpPressed:Bool = false;
 	var jumpTimer:Float = 0;
