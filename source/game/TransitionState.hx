@@ -16,5 +16,8 @@ class TransitionState extends FlxState
 		var player = new FlxSprite();
 		player.loadGraphic(AssetPaths.returnCharacter('transition'));
 		add(player);
+
+		player.screenCenter();
+		player.x += 250;
 	}
 }
