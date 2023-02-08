@@ -1,7 +1,7 @@
 package backend;
 
 import openfl.utils.Assets;
-import backend.MetaData
+import backend.MetaData;
 
 class AssetPaths {
  inline public static function returnMapCSV(key:String) {
